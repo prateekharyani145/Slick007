@@ -191,18 +191,11 @@ function myFunction2() {
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="index.jsp">Home</a>
+
+<!------------------------------------------------- Home Button ----------------------------------------------------------------------------------------- -->	
+					<li><a href="Index.jsp">Home</a>
 					</li>
-					<!--li class="hidden-xs"><a href="blog.jsp">Blog</a>
-					</li//-->
-					<!--li  class="hidden-xs"><a href="contact.jsp">Contact Us</a>
-					</li-->
-				</ul>
-			</div>
-			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
-				<ul class="top-nav nav-right">
-					<li><a href="register.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
-					</li>
+
 				</ul>
 			</div>
 		</div>
@@ -220,8 +213,10 @@ function myFunction2() {
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+
+<!-------------------------------------------------- Logo Button ----------------------------------------------------------------------------------------------->
         <!-- logo -->
-        <a href="index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
+        <a href="Index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
         </a>
         <!-- header end -->
       </div>
@@ -236,6 +231,8 @@ function myFunction2() {
     <li><a href="#tabs-1">Admin Login</a></li>
   
   </ul>
+  
+<!------------------------------------------------------------------   	ADMIN LOGIN TAB  ---------------------------------------------------------->
   <div id="tabs-1">
     <section class="section-padding-50" id="login">
       <div class="container">
@@ -245,7 +242,7 @@ function myFunction2() {
             <div class="box-panel">
 
                 <div class="form-group">
-                    <form action="loginadmin_db.jsp" method="get" name="adminlogin">
+                    <form action="db_Admin_Login.jsp" method="get" name="adminlogin">
                     
                   <label>Email</label>
                   <input type="text" placeholder="Enter your email" name="id" class="form-control" required>
@@ -292,6 +289,7 @@ function myFunction2() {
   </div>
   
   
+<!------------------------------------------------------------------   	CUSTOMER LOGIN TAB  ---------------------------------------------------------->
   
   <div id="tabs-2">
    <section class="section-padding-50" id="login">
@@ -302,7 +300,7 @@ function myFunction2() {
             <div class="box-panel">
 
                 <div class="form-group">
-                    <form action="logincustomer_db.jsp" method="get" name="customerlogin">
+                    <form action="db_Customer_login.jsp" method="get" name="customerlogin">
                     
                   <label>Email</label>
                   <input type="text" placeholder="Enter your email" name="customerID" class="form-control" required>
@@ -347,7 +345,7 @@ function myFunction2() {
   </div>
   
   
-  
+  <!------------------------------------------------------------------   EXPERT LOGIN TAB  ---------------------------------------------------------->
   
   <div id="tabs-3">
    <section class="section-padding-50" id="loginexpert">
@@ -358,7 +356,7 @@ function myFunction2() {
             <div class="box-panel">
 
                 <div class="form-group">
-                    <form action="loginexpert_db.jsp" method="get" name="expertlogin">
+                    <form action="db_Expert_Login.jsp" method="get" name="expertlogin">
                     
                   <label>Email</label>
                   <input type="text" placeholder="Enter your email" name="id" class="form-control" required>

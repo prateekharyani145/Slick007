@@ -45,16 +45,23 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="index.jsp">Home</a>
+<!------------------------------------------------- Home Button ----------------------------------------------------------------------------------------- -->	
+					<li><a href="Index.jsp">Home</a>
 					</li>
+
 				</ul>
 			</div>
 			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
 				<ul class="top-nav nav-right">
-					<li><a href="login_form.jsp"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
+				
+				
+<!-- ------------------------------------------ Login and Sign Up Button	------------------------------------------------------------------------------ -->
+					<li><a href="Login.jsp"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
 					</li>
-					<li><a href="register.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
+					<li><a href="Customer_Register.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
 					</li>
+
+
 				</ul>
 			</div>
 		</div>
@@ -71,9 +78,9 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-
+<!-------------------------------------------------- Logo Button ----------------------------------------------------------------------------------------------->
 				<!-- logo -->
-				<a href="index.jsp" class="navbar-brand">
+				<a href="Index.jsp" class="navbar-brand">
 					<img class="img-responsive" alt="" src="images/logo.png">
 				</a>
 
@@ -102,10 +109,15 @@
 		<div class="search-area container">
 			<h3 class="search-title">Have a Question?</h3>
 			<p class="search-tag-line">If you have search any question you can write or enter what you are looking for!</p>
-                        <form autocomplete="off" method="get" class="search-form clearfix" id="search-form" action="Check.jsp">
+			
+			
+<!-- ------------------------------------------------Search Button	----------------------------------------------------------->
+            <form autocomplete="off" method="get" class="search-form clearfix" id="search-form" action="db_CheckCredential.jsp">
 				<input type="text" title="* Please enter a search term!" placeholder="Type your search terms here" class="search-term " autocomplete="off">
 				<input type="submit" value="Search" class="search-btn">
 			</form>
+			
+
 		</div>
 	</div>
         	<!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->

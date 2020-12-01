@@ -45,14 +45,20 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="index.jsp">Home</a>
+
+<!------------------------------------------------- Home Button ----------------------------------------------------------------------------------------- -->	
+					<li><a href="Index.jsp">Home</a>
 					</li>
 				</ul>
 			</div>
 		   <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
 				<ul class="top-nav nav-right">
-					<li><a href="login_form.jsp"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
+
+<!-- ----------------------------------------Login Button	------------------------------------------------------------------------ -->
+					<li><a href="Login.jsp"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
 					</li>
+
+
 				</ul>
 			</div>
 		</div>
@@ -71,8 +77,9 @@
           <span class="icon-bar"></span>
         </button>
 
+<!-------------------------------------------------- Logo Button ----------------------------------------------------------------------------------------------->
         <!-- logo -->
-        <a href="index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
+        <a href="Index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
         </a>
 
         <!-- header end -->
@@ -109,9 +116,9 @@
           <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
 
             <div class="box-panel">
-
+<!-- ------------------------------------------------------ Registration Form ------------------------------------------------------------------------------ -->
               <!-- form login -->
-              <form action="register_db.jsp" method="post">
+              <form action="db_Customer_Register.jsp" method="post">
                   
                 <div class="form-group">
                   <!--label>Id</label-->
@@ -143,7 +150,9 @@
                 <div class="form-group">
                   <div class="row">
                     <div class="col-xs-12 text-right">
-                      <a href="login_form.jsp">Already Register Sign In</a>
+
+<!-- ------------------------------------------ Login Button	------------------------------------------------------------------------------ -->
+                      <a href="Login.jsp">Already Register Sign In</a>
                     </div>
                   </div>
                 </div>

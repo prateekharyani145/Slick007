@@ -78,6 +78,7 @@ public class Customer implements Serializable {
 		this.id = id;
 		this.password = password;
 	}
-	
+	// For jsp usebean used in db_register.jsp
+	public Customer() {}
 	
 }
