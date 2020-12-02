@@ -122,7 +122,19 @@ public class CustomerDAO {
 	public boolean checkCustomerCredentials(Customer obj) {
 		boolean b = false;
 		try {
+			con = DatabaseConnection.getConnection();
+			//SELECT ID FROM customer where ID = 'prateekharyani145@gmail.com' AND Password = 'java@123' AND Verified = 1 AND Blocked = 0
+			pst = con.prepareStatement("SELECT ID FROM customer where ID = ? AND Password = ? AND Verified = 1 AND Blocked = 0");
 			
+			pst.setNString(1, obj.getId());
+			pst.setString(2, obj.getPassword());
+			rs = pst.executeQuery();
+			if(rs.isBeforeFirst())
+			{
+				System.out.println("Login Successfully "+obj.getId());
+				b=true;
+			}
+			con.close();
 		}
 		catch(Exception ex){
 			ex.printStackTrace();

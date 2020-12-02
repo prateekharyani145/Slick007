@@ -242,7 +242,7 @@ function myFunction2() {
             <div class="box-panel">
 
                 <div class="form-group">
-                    <form action="db_Admin_Login.jsp" method="get" name="adminlogin">
+                    <form action="db_Admin_Login.jsp" method="post" name="adminlogin">
                     
                   <label>Email</label>
                   <input type="text" placeholder="Enter your email" name="id" class="form-control" required>
@@ -300,7 +300,7 @@ function myFunction2() {
             <div class="box-panel">
 
                 <div class="form-group">
-                    <form action="db_Customer_login.jsp" method="get" name="customerlogin">
+                    <form action="db_Customer_Login.jsp" method="post" name="customerlogin">
                     
                   <label>Email</label>
                   <input type="text" placeholder="Enter your email" name="customerID" class="form-control" required>
@@ -356,7 +356,7 @@ function myFunction2() {
             <div class="box-panel">
 
                 <div class="form-group">
-                    <form action="db_Expert_Login.jsp" method="get" name="expertlogin">
+                    <form action="db_Expert_Login.jsp" method="post" name="expertlogin">
                     
                   <label>Email</label>
                   <input type="text" placeholder="Enter your email" name="id" class="form-control" required>
