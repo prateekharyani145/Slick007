@@ -156,17 +156,17 @@
                                 <div class="tab-content">
                                     <div id="tab1" class="tab-pane active">
                                         <!--  Question Listing-->
- <%--                                        <jsp:include page="Customer_Answers.jsp"/> --%>
+                                        <jsp:include page="Customer_Answers.jsp"/>
                                         <!--  Question Listing End-->
                                     </div>
                                     <div id="tab2" class="tab-pane">
                                         <!-- Question Listing -->
-<%--                                         <jsp:include page="Customer_UnAnswered_Questions.jsp"/>  --%>
+                                        <jsp:include page="Customer_UnAnswered_Questions.jsp"/> 
                                     </div>
                                         <!-- Question Listing End -->
                                    <div id="tab3" class="tab-pane">
                                         <!-- Question Listing -->
-<%--                                         <jsp:include page="Customer_IncidentRaised.jsp"/>  --%>
+                                        <jsp:include page="Customer_IncidentRaised.jsp"/> 
                                     </div>
                                     </div>
                                     
