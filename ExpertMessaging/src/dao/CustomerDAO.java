@@ -19,6 +19,7 @@ public class CustomerDAO {
 		boolean b= false;
 		try {
 			con = DatabaseConnection.getConnection();
+			
 			//-----------  SELECT * FROM customer WHERE ID = 'prateekharyani145@gmail.com';  --------------//
 			pst = con.prepareStatement("SELECT * FROM customer WHERE ID = ?");
 			
@@ -123,6 +124,7 @@ public class CustomerDAO {
 		boolean b = false;
 		try {
 			con = DatabaseConnection.getConnection();
+			
 			//SELECT ID FROM customer where ID = 'prateekharyani145@gmail.com' AND Password = 'java@123' AND Verified = 1 AND Blocked = 0
 			pst = con.prepareStatement("SELECT ID FROM customer where ID = ? AND Password = ? AND Verified = 1 AND Blocked = 0");
 			
@@ -143,13 +145,16 @@ public class CustomerDAO {
 		return b;
 	}
 	
+	// DISPLAY PROFILE-SETTING ------------------------------------------------------------------------------
 	public static Customer getAllCustomerDetailsByID(Customer obj) {
 		Customer customerDetails = null;
 		Connection con = null;
 		try {
 			con = DatabaseConnection.getConnection();
+			
 			// SELECT * FROM customer WHERE ID = 'prateekharyani145@gmail.com';
 			String sql = "SELECT * FROM customer WHERE ID = '" +obj.getId()+ "' " ;
+			
 			ResultSet rs = con.prepareStatement(sql).executeQuery();
 	        if(rs.next())
 	        	customerDetails = new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getBoolean(6),rs.getBoolean(7));
@@ -159,6 +164,37 @@ public class CustomerDAO {
 			ex.printStackTrace();
 		}
 		return customerDetails;
+	}
+
+	// UPDATE PROFILE-SETTING ------------------------------------------------------------------------------
+	public boolean updateCustomer(Customer obj) {
+		boolean b = false;
+		try {
+			con = DatabaseConnection.getConnection();
+			
+			// UPDATE customer SET Password = 'Java123' , FirstName = 'PRATEEK' , LastName = 'HARYANI' , MobileNumber = '7000346117' WHERE ID = 'prateekharyani145@gmail.com'
+			pst = con.prepareStatement("UPDATE customer SET Password = ? , FirstName = ? , LastName = ? , MobileNumber = ? WHERE ID = ?");
+			
+	        pst.setString(1, obj.getPassword());
+	        pst.setString(2, obj.getFirstName());
+	        pst.setString(3, obj.getLastName());
+	        pst.setString(4, obj.getMobileNumber());
+	        pst.setString(5, obj.getId());
+	        
+	        int count = pst.executeUpdate();
+	        
+	        if(count>0) {
+	        	b = true;
+	        	System.out.println("Profile Updated Successful");
+	        }	
+
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			
+		}
+		return b;
 	}
 	
 
