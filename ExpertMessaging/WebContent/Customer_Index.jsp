@@ -67,7 +67,7 @@
 						</a>
 						<ul class="dropdown-menu ">
 <!-- ------------------------------------------------Profile Setting Button	----------------------------------------------------------->
-							<li><a href="profile-setting.jsp"><i class=" icon-gears"></i>Customer Profile Setting</a></li>
+							<li><a href="Customer_Profile_Setting.jsp"><i class=" icon-gears"></i>Customer Profile Setting</a></li>
 
 <!-- ------------------------------------------ LogOut Button	------------------------------------------------------------------------------ -->
 							<li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>

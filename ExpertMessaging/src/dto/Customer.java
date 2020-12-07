@@ -58,13 +58,15 @@ public class Customer {
 	
 	// For registerCustomer------------------------------------------------------------------------------------------------------------------
 	
-	public Customer(String id, String password, String firstName, String lastName, String mobileNumber)
+	public Customer(String id, String password, String firstName, String lastName, String mobileNumber , boolean verified , boolean blocked)
 	{
 		this.id = id;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.mobileNumber = mobileNumber;
+		this.verified = verified;
+		this.blocked = blocked;
 	}
 	
 	// For checkCustomerCredentials ------------------------------------------------------------------------

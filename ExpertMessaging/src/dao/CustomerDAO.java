@@ -142,7 +142,24 @@ public class CustomerDAO {
 		}
 		return b;
 	}
-
+	
+	public static Customer getAllCustomerDetailsByID(Customer obj) {
+		Customer customerDetails = null;
+		Connection con = null;
+		try {
+			con = DatabaseConnection.getConnection();
+			// SELECT * FROM customer WHERE ID = 'prateekharyani145@gmail.com';
+			String sql = "SELECT * FROM customer WHERE ID = '" +obj.getId()+ "' " ;
+			ResultSet rs = con.prepareStatement(sql).executeQuery();
+	        if(rs.next())
+	        	customerDetails = new Customer(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getBoolean(6),rs.getBoolean(7));
+	        con.close();
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return customerDetails;
+	}
 	
 
 }
