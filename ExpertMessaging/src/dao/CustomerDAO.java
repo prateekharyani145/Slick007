@@ -2,6 +2,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import dbcon.DatabaseConnection;
 import dto.Customer;
@@ -12,7 +13,7 @@ public class CustomerDAO {
 	PreparedStatement pst;
 	ResultSet rs;
 	
-// Email Id Exist Or Not -------------------------------------------------------------
+// EMAIL ID EXIST  -------------------------------------------------------------
 
 	public boolean checkID(String customerID)
 	{
@@ -86,7 +87,7 @@ public class CustomerDAO {
 		return b;
 
 	}
-	//Verification-------------------------------------------------------------------------
+	//VERIFICATION-------------------------------------------------------------------------
 	public boolean verifyCustomer(String customerID) {
 			boolean b= false;
 			try {
@@ -196,6 +197,45 @@ public class CustomerDAO {
 		}
 		return b;
 	}
+	// DISPLAY CUSTOMER DETAILS FOR ADMMIN 
+	public ArrayList<Customer> getAllCustomersDetails(){
+		ArrayList<Customer> customerList= null;
+		try {
+            con = DatabaseConnection.getConnection();
+            
+            pst = con.prepareStatement("select * from Customer where verified = true");
+            
+            rs = pst.executeQuery();
+            
+            if(rs.isBeforeFirst())
+            {
+                customerList = new ArrayList<>();
+                
+                while(rs.next())
+                {
+                    Customer obj = new Customer();
+                    obj.setId(rs.getString(1));
+                    obj.setPassword(rs.getString(2));
+                    obj.setFirstName(rs.getString(3));
+                    obj.setLastName(rs.getString(4));
+                    obj.setMobileNumber(rs.getString(5));
+                    obj.setVerified(rs.getBoolean(6));
+                    obj.setBlocked(rs.getBoolean(7));
+                    
+                    customerList.add(obj);
+                }
+            }
+            
+            con.close();
+
+			
+		}
+		catch(Exception ex) {
+			
+		}
+		return customerList;
+	}
+
 	
 
 }
