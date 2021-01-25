@@ -1,8 +1,10 @@
 package dao;
+import dto.QuestionSubCategory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import dbcon.DatabaseConnection;
 
@@ -37,6 +39,62 @@ public class QuestionSubCategoryDAO {
 		}
 		return subCategoryName;
 	}
+
+	public boolean subCategoryOccupied(int subCategoryID) {
+		boolean b= false;
+		try {
+			
+			con = DatabaseConnection.getConnection();
+            
+            pst=con.prepareStatement("update questionsubcategory set occupied = 1 where id=?");
+            pst.setInt(1, subCategoryID);
+            int i= pst.executeUpdate();
+            if(i==1) {
+            	b= true;
+            }
+            con.close();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return b;
+	}
+	public ArrayList<QuestionSubCategory> getQuestionSubCategoriesByCategoryID(int categoryID){
+		ArrayList<QuestionSubCategory> subCategoryList= null;
+		try {
+	        con = DatabaseConnection.getConnection();
+	        
+	        pst = con.prepareStatement("select * from QuestionSubCategory where categoryID = ? AND occupied = 0");
+	        
+	        pst.setInt(1, categoryID);
+	        
+	        rs = pst.executeQuery();
+	        
+	        if(rs.isBeforeFirst())
+	        {
+	        	subCategoryList = new ArrayList<>();
+	            
+	            while(rs.next())
+	            {
+	                QuestionSubCategory obj = new QuestionSubCategory();
+	                obj.setId(rs.getInt(1));
+	                obj.setSubCategoryName(rs.getString(2));
+	                obj.setCategoryID(rs.getInt(3));
+	                subCategoryList.add(obj);
+	            }
+	        }
+	        
+	        con.close();
+
+			
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return subCategoryList;
+		
+	}
+
 
 
 }

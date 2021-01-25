@@ -41,5 +41,16 @@ public class Expert {
 		this.subCategoryID = subCategoryID;
 	}
 
+	// REGISTRATION----------------------------------------------------------
+    public Expert(String id, String password) {
+        this.id = id;
+        this.password = password;
+    }
+    
+    // FOR GELALLEXPERTDETAILS FUNCTION
+    public Expert() {
+    }
+
+
 
 }

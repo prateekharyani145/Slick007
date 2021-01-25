@@ -42,7 +42,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="index_admin.jsp">Home</a>
+					<li><a href="Admin_Index.jsp">Home</a>
 					</li>
 				</ul>
 			</div>
@@ -50,7 +50,7 @@
 				<ul class="top-nav nav-right">
 					<li><a href="AddQuestionCategoryAndSubCategory.jsp"><i aria-hidden="true"></i><b>Add Categories</b></a>
 					</li>
-					<li><a href="registerexpert.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Expert Register</a>
+					<li><a href="Admin_ExpertRegister.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Expert Register</a>
 					</li>
 					<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
 				</ul>

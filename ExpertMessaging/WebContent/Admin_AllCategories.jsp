@@ -1,5 +1,5 @@
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
+<%@ page import ="java.util.ArrayList"%>
+<%@ page import ="java.util.List"%>
 <%@page import="dao.QuestionCategoryDAO"%>
 <%@page import="dto.QuestionCategory"%>
 <!DOCTYPE html>
