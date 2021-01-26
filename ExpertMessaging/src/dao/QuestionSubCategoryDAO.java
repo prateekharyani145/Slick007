@@ -185,6 +185,41 @@ public class QuestionSubCategoryDAO {
 		return subCategoryList;
 		
 	}
+	public ArrayList<QuestionSubCategory> getSubCategoriesByQuestionCategoryID(int categoryID){
+		ArrayList<QuestionSubCategory> subCategoryList= null;
+		try {
+	        con = DatabaseConnection.getConnection();
+	        
+	        pst = con.prepareStatement("select * from QuestionSubCategory where categoryID = ? and occupied = 1");
+	        
+	        pst.setInt(1, categoryID);
+	        
+	        rs = pst.executeQuery();
+	        
+	        if(rs.isBeforeFirst())
+	        {
+	        	subCategoryList = new ArrayList<>();
+	            
+	            while(rs.next())
+	            {
+	                QuestionSubCategory obj = new QuestionSubCategory();
+	                obj.setId(rs.getInt(1));
+	                obj.setSubCategoryName(rs.getString(2));
+	                obj.setCategoryID(rs.getInt(3));
+	                subCategoryList.add(obj);
+	            }
+	        }
+	        
+	        con.close();
+
+			
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return subCategoryList;
+		
+	}
 
 
 

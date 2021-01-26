@@ -96,6 +96,32 @@ public boolean registerExpert(Expert object) {
 	}
 	return b;
 }
+public String getExpertByCategorySubCategory(int categoryID,int subCategoryID) {
+	String expertID= "";
+	try {
+         con = DatabaseConnection.getConnection();
+         
+         pst = con.prepareStatement("Select id From Expert Where categoryID = ? AND subCategoryID = ?");
+         
+         pst.setInt(1, categoryID);
+         pst.setInt(2, subCategoryID);
+         
+         rs = pst.executeQuery();
+         
+         if(rs.isBeforeFirst())
+         {
+             rs.next();
+             expertID = rs.getString("id");
+         }
+
+		
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return expertID;		
+}
+
 
 
 }

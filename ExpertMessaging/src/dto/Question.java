@@ -1,7 +1,7 @@
 package dto;
 
 public class Question {
-	private String id;
+	private int id;
 	private String questionTitle;
 	private String questionDescription;
 	private String postedDate;
@@ -14,10 +14,10 @@ public class Question {
 	
 	// Getter And Setter Automatic  --------------------------------------------------------
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getQuestionDescription() {

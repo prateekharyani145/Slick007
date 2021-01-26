@@ -1,15 +1,13 @@
-<%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="dao.QuestionCategoryDAO"%>
 <%@page import="dto.QuestionCategory"%>
+<%@page import="java.util.ArrayList" %>
+<%@page import="dao.QuestionCategoryDAO"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="ScriptsBundle">
-  <title>Register Expert</title>
+  <title>Post Question</title>
   <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
@@ -23,18 +21,20 @@
   <!-- =-=-=-=-=-=-= Et Line Fonts =-=-=-=-=-=-= -->
   <link rel="stylesheet" href="css/et-line-fonts.css">
   	<!-- =-=-=-=-=-=-= Owl carousel =-=-=-=-=-=-= -->
-  <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-  <link rel="stylesheet" type="text/css" href="css/owl.style.css">
-  <!-- =-=-=-=-=-=-= Google Fonts =-=-=-=-=-=-= -->
-  <link href="../../../fonts.googleapis.com/cssd7e8.css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
+	<link rel="stylesheet" type="text/css" href="css/owl.style.css">
   <!-- =-=-=-=-=-=-= Highliter Css =-=-=-=-=-=-= -->
-  <link type="text/css" rel="Stylesheet" href="css/styles/shCoreDefault.css" />
+  <link type="text/css" rel="stylesheet" href="css/styles/shCoreDefault.css" />
   <!-- =-=-=-=-=-=-= Css Animation =-=-=-=-=-=-= -->
   <link type="text/css" rel="stylesheet" href="css/animate.min.css" />
   <!-- =-=-=-=-=-=-= Hover Dropdown =-=-=-=-=-=-= -->
   <link type="text/css" rel="stylesheet" href="css/bootstrap-dropdownhover.min.css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <!-- =-=-=-=-=-=-= For This Page Only =-=-=-=-=-=-= -->
+  <link href="css/select2.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/jquery.tagsinput.min.css">
+
   <!-- JavaScripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
   <script src="js/modernizr.js"></script>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -45,31 +45,40 @@
   
   <script type="text/javascript">
             $(document).ready(function(){
-            			 // detect change of dropdown
-				$("#qcat").change(function(){
-			          // get id of selected team
-				var catid=$(this).find(':selected').val();
-			                // set json url
-				var json_url="db_Expert_GetSubCategoryJson.jsp?catid="+catid;
-                $("#subcat").empty();
-		                // get json data
-				jQuery.getJSON(json_url, function(data){
-						// put new dropdown values to players dropdown
-				jQuery.each(data, function(key, val){
-				console.log(val[0]);
 
-				for(var i = 0 ; i < val.length ; i++)
-			    {    
-			      var obj = val[i];
-			      console.log(obj.id);
-			      console.log(obj.subCategoryName);
-			      $("#subcat").append("<option value='" + obj.id + "'>" + obj.subCategoryName + "</option>")
-			    }
-			});
-			});
+// detect change of dropdown
+	$("#qcat").change(function(){
+
+// get id of selected team
+		var catid=$(this).find(':selected').val();
+
+                // set json url
+		var json_url="db_Customer_GetSubCategoryJson.jsp?catid="+catid;
+
+                $("#subcat").empty();
+		
+                // get json data
+		jQuery.getJSON(json_url, function(data){
+
+			// put new dropdown values to players dropdown
+			jQuery.each(data, function(key, val){
+				console.log(val[0]);
+                                
+                                for(var i = 0 ; i < val.length ; i++)
+                                {    
+                                var obj = val[i];
+                                console.log(obj.id);
+                                console.log(obj.subCategoryName);
+        $("#subcat").append("<option value='" + obj.id + "'>" + obj.subCategoryName + "</option>")
+                                }
+				});
+		});
+                
             });        
 });
         </script>
+        
+        
 </head>
 
 <body>
@@ -79,24 +88,36 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="Admin_Index.jsp">Home</a>
+					<li><a href="index_customer.jsp">Home</a>
 					</li>
-					<!--li class="hidden-xs"><a href="blog.jsp">Blog</a>
-					</li//-->
-					<!--li  class="hidden-xs"><a href="contact.jsp">Contact Us</a>
-					</li-->
 				</ul>
 			</div>
 			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
 				<ul class="top-nav nav-right">
-					<li><a href="AddQuestionCategoryAndSubCategory.jsp"><i aria-hidden="true"></i><b>Add Categories</b></a>
-					</li>
-							<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
 					<!--li><a href="login.jsp"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
 					</li>
 					<li><a href="register.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
 					</li-->
-     		    </ul>
+					<li class="dropdown"> 
+						<a class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown" data-animations="fadeInUp">
+							<img class="img-circle resize" alt="" src="images/authors/13.png">
+							<span style="text-transform: lowercase" class="hidden-xs small-padding">
+                                                            <%
+                                                                    String name=(String)session.getAttribute("customerID");
+                                                                    out.print(name);
+                                                                    
+                                                                    %>
+							 <i class="fa fa-caret-down"></i>
+                                                        </span>
+						</a>
+						<ul class="dropdown-menu ">
+							<!--li><a href="profile.jsp"><i class=" icon-bargraph"></i> Dashboard</a></li//-->
+							<li><a href="profile-setting.jsp"><i class=" icon-gears"></i> Profile Setting</a></li>
+							<!--li><a href="question-list.jsp"><i class="icon-heart"></i> Questions</a></li-->
+							<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+						</ul>
+					 </li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -112,7 +133,7 @@
           <span class="icon-bar"></span>
         </button>
         <!-- logo -->
-        <a href="index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
+        <a href="index_customer.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
         </a>
         <!-- header end -->
       </div>
@@ -124,23 +145,6 @@
           </li//-->
           <!--li><a href="listing.jsp">Browse Questions</a>
           </li-->
-          <!--li class="dropdown"> <a class="dropdown-toggle " data-hover="dropdown" data-toggle="dropdown" data-animations="fadeInUp">Pages <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              
-              <li><a href="question-detail.jsp">Question Detail</a>
-              </li>
-              
-              <li><a href="404.jsp">Error Page</a>
-							</li>
-              <li><a href="contact.jsp">Contact Us</a>
-              </li>
-              
-            </ul>
-          </li-->
-          <!--li>
-            <div class="btn-nav"><a href="post-question.jsp" class="btn btn-primary btn-small navbar-btn">Post Question</a>
-            </div>
-          </li-->
         </ul>
       </div>
       <!-- navigation menu end -->
@@ -148,41 +152,27 @@
     </div>
   </div>
   <!-- HEADER Navigation End -->
-    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
-    <section class="page-title">
+
+ 
+    <!-- =-=-=-=-=-=-= Post Question  =-=-=-=-=-=-= -->
+    <section class="section-padding-80 white" id="post-question">
       <div class="container">
         <div class="row">
-          <div align="center" class="col-md-12 col-sm-8 co-xs-15">
-              <h1><b><font style="font-size:20">Expert Registration</font></b></h1>
-          </div>
-          <!-- end col -->
-         
-          <!-- end col -->
-        </div>
-        <!-- end row -->
-      </div>
-      <!-- end container -->
-    </section>
-
-    <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
-
-    <!-- =-=-=-=-=-=-= Register Form =-=-=-=-=-=-= -->
-    <section class="section-padding-80 white" id="register">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+          <div class="col-sm-12 col-md-8 ">
 
             <div class="box-panel">
-              
-              <form action="db_Expert_Register.jsp" method="get">
-                  
+
+              <h2>Post Your Question</h2>
+              <hr>
+              <!-- form login -->
+              <form class="margin-top-40" action="db_Customer_PostQuestion.jsp">
                 <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" placeholder="Expert's Email ID" name="id" class="form-control" required>
+                  <label>Question Title</label>
+                  <input type="text" placeholder="Question Title" class="form-control" name="questionTitle" required>
                 </div>
-                 <div class="form-group">
-                  <label>Category ID</label>
-                  <select id="qcat" class="questions-category form-control" name="categoryID">
+                <div class="form-group">
+                  <label>Question Category</label>
+                  <select required id="qcat" class="questions-category form-control" name="categoryID">
                       <option value="0">Select Category</option>
                       <%
                             QuestionCategoryDAO qd = new QuestionCategoryDAO();
@@ -200,30 +190,31 @@
                       %>    
                   </select>
                 </div>
-                 
-                 <div class="form-group">
-                  <label>SubCategory ID</label>
-                  <select id="subcat" class="questions-category form-control" name="subCategoryID">
-                    <option value="0">Select SubCategory</option>
-                    
+                <div class="form-group">
+                  <label>Question Sub Category</label>
+                  <select class="questions-category form-control" name="subCategoryID" id="subcat">
+                    <option value="0">All Sub Categories</option>
                   </select>
+                </div>  
+                <div class="form-group">
+                  <label>Question Description</label>
+                  <textarea cols="12" rows="8" placeholder="Post Your Question Details Here....." id="message" name="questionDescription" class="form-control" required></textarea>
                 </div>
-                <button class="btn btn-primary btn-lg btn-block">Create Account</button>
+                <div class="form-group">
+                  <label>Visibility</label>
+                  <input type="checkbox" value="private" name="visibility">
+                </div>  
+                <button class="btn btn-primary pull-right">Publish Your Question</button>
 
-             
-                  </form>
+              </form>
               <!-- form login -->
 
             </div>
           </div>
 
-          <div class="clearfix"></div>
-        </div>
-      </div>
-      <!-- end container -->
-    </section>
-    
-  
+          <!-- Blog Right Sidebar -->
+          <div class="col-sm-12 col-xs-12 col-md-4">
+
   <!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->
   <script src="js/jquery.min.js"></script>
   <!-- Bootstrap Core Css  -->
@@ -249,5 +240,18 @@
   <script type="text/javascript" src="scripts/shBrushPhp.js"></script>
   <!-- Template Core JS -->
   <script src="js/custom.js"></script>
+  <!-- For THis Page Only -->
+  <script src="js/select2.min.js"></script>
+  <script type="text/javascript" src="js/jquery.tagsinput.min.js"></script>
+  <script type="text/javascript">
+    $(".questions-category").select2({
+      placeholder: "Select Post Category",
+      allowClear: true,
+      maximumSelectionLength: 3
+    });
+    $('#tags').tagsInput({
+      width: 'auto'
+    });
+  </script>
 </body>
 </html>

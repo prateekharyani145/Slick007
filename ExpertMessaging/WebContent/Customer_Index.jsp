@@ -107,7 +107,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li>
 <!-- ------------------------------------------------PostQuestion Button	----------------------------------------------------------->
-						<div class="btn-nav"><a href="post-question.jsp" class="btn btn-primary btn-small navbar-btn">Post Question</a>
+						<div class="btn-nav"><a href="Customer_PostQuestion.jsp" class="btn btn-primary btn-small navbar-btn">Post Question</a>
 						</div>
 					</li>
 				</ul>
