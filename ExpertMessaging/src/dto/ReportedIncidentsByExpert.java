@@ -3,12 +3,11 @@ package dto;
 public class ReportedIncidentsByExpert {
 
 	private int id;
-	private String incDesc;
+	private String incidentDescription;
 	private String postedDate;
 	private String expertID;
 	private String customerID;
 	private int questionID;
-	private int answerID;
 	
 	
 	// Getter And Setter Automatic  --------------------------------------------------------
@@ -37,22 +36,16 @@ public class ReportedIncidentsByExpert {
 	public void setCustomerID(String customerID) {
 		this.customerID = customerID;
 	}
-	public String getIncDesc() {
-		return incDesc;
+	public String getIncidentDescription() {
+		return incidentDescription;
 	}
-	public void setIncDesc(String incDesc) {
-		this.incDesc = incDesc;
+	public void setIncidentDescription(String incidentDescription) {
+		this.incidentDescription = incidentDescription;
 	}
 	public int getQuestionID() {
 		return questionID;
 	}
 	public void setQuestionID(int questionID) {
 		this.questionID = questionID;
-	}
-	public int getAnswerID() {
-		return answerID;
-	}
-	public void setAnswerID(int answerID) {
-		this.answerID = answerID;
 	}
 }

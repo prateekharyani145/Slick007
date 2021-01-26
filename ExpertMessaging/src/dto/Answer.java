@@ -3,7 +3,7 @@ package dto;
 public class Answer {
 
 	private int id;
-	private String ansDesc;
+	private String answerDescription;
 	private String postedDate;
 	private int questionID;
 	private String expertID;
@@ -13,11 +13,11 @@ public class Answer {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getAnsDesc() {
-		return ansDesc;
+	public String getAnswerDescription() {
+		return answerDescription;
 	}
-	public void setAnsDesc(String ansDesc) {
-		this.ansDesc = ansDesc;
+	public void setAnswerDescription(String answerDescription) {
+		this.answerDescription = answerDescription;
 	}
 	public String getPostedDate() {
 		return postedDate;

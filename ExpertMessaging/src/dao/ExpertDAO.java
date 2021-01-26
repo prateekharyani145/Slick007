@@ -121,6 +121,31 @@ public String getExpertByCategorySubCategory(int categoryID,int subCategoryID) {
 	}
 	return expertID;		
 }
+public boolean checkExpertCredentials(Expert object) {
+	boolean b= false;
+	try {
+        con = DatabaseConnection.getConnection();
+        
+        pst = con.prepareStatement("SELECT * FROM Expert WHERE id = ? and password = ? and blocked = false");
+        
+        pst.setString(1, object.getId());
+        pst.setString(2, object.getPassword());
+        
+        rs = pst.executeQuery();
+        
+        if(rs.isBeforeFirst())
+            b = true;
+        
+        con.close();
+
+		
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return b;
+}
+
 
 
 
