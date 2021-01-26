@@ -58,7 +58,7 @@
 		var catid=$(this).find(':selected').val();
 
                 // set json url
-		var json_url="GetSubCategoryJson.jsp?catid="+catid;
+		var json_url="db_Admin_GetSubCategoryJson.jsp?catid="+catid;
 
                 $("#subcat").empty();
 		

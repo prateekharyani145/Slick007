@@ -70,8 +70,52 @@ public class QuestionCategoryDAO {
 		return categoryName;
 	}
 	
-	
+
+public int addQuestionCategory(String categoryName) {
+	int categoryID= 0;
+	try {
+        con = DatabaseConnection.getConnection();
+        
+        pst=con.prepareStatement("SELECT COUNT(categoryName) FROM questioncategory WHERE categoryName=?");
+        pst.setString(1, categoryName);
+        rs = pst.executeQuery();
+        int count=0;
+        if(rs.isBeforeFirst())
+         {
+             rs.next();
+             count = rs.getInt("COUNT(categoryName)");
+         }
+
+        if(count==0) {
+        pst = con.prepareStatement("insert into QuestionCategory(categoryName) values(?)");
+        
+        pst.setString(1, categoryName);
+        
+        count = pst.executeUpdate();
+        
+        if(count <= 0)
+            return 0;
+        }
+        
+        
+        pst = con.prepareStatement("select * from questionCategory where categoryName = ?");
+        pst.setString(1, categoryName);
+        
+        rs = pst.executeQuery();
+        if(rs.isBeforeFirst())
+        {
+            rs.next();
+            categoryID = rs.getInt(1);
+        }
+       
+        
+        con.close();
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return categoryID;
 }
 
-
+}
 

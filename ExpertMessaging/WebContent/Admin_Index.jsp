@@ -48,7 +48,7 @@
 			</div>
 			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
 				<ul class="top-nav nav-right">
-					<li><a href="AddQuestionCategoryAndSubCategory.jsp"><i aria-hidden="true"></i><b>Add Categories</b></a>
+					<li><a href="Admin_AddCategories.jsp"><i aria-hidden="true"></i><b>Add Categories</b></a>
 					</li>
 					<li><a href="Admin_ExpertRegister.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Expert Register</a>
 					</li>
