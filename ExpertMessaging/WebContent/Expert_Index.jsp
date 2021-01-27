@@ -71,7 +71,7 @@
                                 </a>
                                 <ul class="dropdown-menu ">
                                     <!--li><a href="profile.jsp"><i class=" icon-bargraph"></i> Dashboard</a></li//-->
-                                    <li><a href="profile_setting_expert.jsp"><i class=" icon-gears"></i> Profile Setting</a></li>
+                                    <li><a href="Expert_Profile_Setting.jsp"><i class=" icon-gears"></i> Profile Setting</a></li>
                                     <!--li><a href="question-list.jsp"><i class="icon-heart"></i> Questions</a></li-->
                                     <li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
                                 </ul>

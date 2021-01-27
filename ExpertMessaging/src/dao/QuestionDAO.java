@@ -190,6 +190,60 @@ public boolean changeQuestionStatus(int questionID) {
 	}
 	return b;
 }
+public String getExpertByQuestion(int questionID) {
+	String expertID= "";
+	try {
+        con = DatabaseConnection.getConnection();
+        
+        pst = con.prepareStatement("select expertID from Question where id = ?");
+        pst.setInt(1,questionID);
+        
+        rs = pst.executeQuery();
+        
+        if(rs.isBeforeFirst())
+        {
+            rs.next();
+            expertID = rs.getString(1);
+        }
+        
+        con.close();
+		
+		
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return expertID;
+	
+}
+public String getCustomerByQuestion(int questionID) {
+	String customerID= "";
+	try {
+        con = DatabaseConnection.getConnection();
+        
+        pst = con.prepareStatement("select customerID from Question where id = ?");
+        pst.setInt(1,questionID);
+        
+        rs = pst.executeQuery();
+        
+        if(rs.isBeforeFirst())
+        {
+            rs.next();
+            customerID = rs.getString(1);
+        }
+        
+        con.close();
+
+		
+		
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return customerID;
+	
+}
+
 
 
 

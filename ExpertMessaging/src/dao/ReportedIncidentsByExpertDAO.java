@@ -86,5 +86,33 @@ public class ReportedIncidentsByExpertDAO {
 		}
 		return ExpertIncidentList;
 	}
+	public boolean addIncidentByExpert(ReportedIncidentsByExpert object) {
+		boolean b=false;
+		try {
+            con = DatabaseConnection.getConnection();
+            
+            pst = con.prepareStatement("insert into ReportedIncidentsByExperts(incidentDescription,"
+                    + "expertID,customerID,questionID) values(?,?,?,?)");
+            
+            pst.setString(1, object.getIncidentDescription());
+            pst.setString(2, object.getExpertID());
+            pst.setString(3, object.getCustomerID());
+            pst.setInt(4, object.getQuestionID());
+            
+            int count = pst.executeUpdate();
+            
+            
+            if(count > 0)
+                b = true;
+            
+            con.close();
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();// TODO: handle exception
+		}
+		return b;
+	}
+
 
 }

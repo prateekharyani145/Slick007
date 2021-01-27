@@ -81,7 +81,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
                 <tbody>
                     <%
                             AnswerDAO dao = new AnswerDAO();
-                            ArrayList<Answer> anslist = dao.getAllAnswersForCustomerQuestions(
+                                ArrayList<Answer> anslist = dao.getAllAnswersForCustomerQuestions(
                                      (String)session.getAttribute("customerID"));
 
                             if(anslist != null)
@@ -97,7 +97,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 				
 				                        <td><%=qd.getQuestionById(questionid).getQuestionDescription()%></td>
 				                        
-				                        <td><%=ans.getAnsDesc()%> <br> <%=ans.getPostedDate()%> </td>
+				                        <td><%=ans.getAnswerDescription()%> <br> <%=ans.getPostedDate()%> </td>
 				                        <td> <button id="myBtn<%=ans.getQuestionID()%>" onclick="openMyDialog(<%=ans.getQuestionID()%>)">Raise Complaint</button></td>   
 				                    </tr>
 					<%
@@ -164,7 +164,7 @@ function addComplaint(){
     
     var incDesc = document.getElementById("incDesc").value;
     
-    var url="AddComplaintByCustomer.jsp?questionid="+questionid+"&incDesc="+incDesc;
+    var url="db_Customer_AddComplaint.jsp?questionid="+questionid+"&incDesc="+incDesc;
 
     modal.style.display = "none";
     

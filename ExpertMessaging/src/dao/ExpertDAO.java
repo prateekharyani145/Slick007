@@ -146,6 +146,63 @@ public boolean checkExpertCredentials(Expert object) {
 	return b;
 }
 
+public boolean updateExpert(Expert obj) {
+	boolean b= false;
+	try {
+	    con = DatabaseConnection.getConnection();
+        
+        pst = con.prepareStatement("update expert set password = ? where id = ? ");
+        
+         pst.setString(1, obj.getPassword());
+         pst.setString(2, obj.getId());
+         
+        int count = pst.executeUpdate();
+        
+        if(count > 0)
+            b = true;
+
+		
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return b;
+}
+
+public Expert getAllDataById(String expertID) {
+	Expert expert= null;
+	try {
+        con = DatabaseConnection.getConnection(); 
+        
+        pst = con.prepareStatement("select * from expert where id = ?");
+        
+        pst.setString(1, expertID);
+        
+        rs = pst.executeQuery();
+        
+        if(rs.isBeforeFirst())
+        {
+            if(rs.next())
+            {  
+                expert = new Expert();
+                expert.setId(rs.getString(1));
+                expert.setPassword(rs.getString(2));
+                expert.setBlocked(rs.getBoolean(3));
+                expert.setCategoryID(rs.getInt(4));
+                expert.setSubCategoryID(rs.getInt(5));
+             }
+        }
+		
+	}
+	catch(Exception ex){
+		ex.printStackTrace();
+	}
+	return expert;
+	
+}
+
+
+
 
 
 

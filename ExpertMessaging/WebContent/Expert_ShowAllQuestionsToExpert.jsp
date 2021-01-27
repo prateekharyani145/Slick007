@@ -164,7 +164,7 @@ function addComplaint(){
     
     var incDesc = document.getElementById("incDesc").value;
     
-    var url="AddComplaintByExpert.jsp?questionid="+questionid+"&incDesc="+incDesc;
+    var url="db_Expert_AddComplaint.jsp?questionid="+questionid+"&incDesc="+incDesc;
 
     modal.style.display = "none";
     

@@ -220,6 +220,34 @@ public class QuestionSubCategoryDAO {
 		return subCategoryList;
 		
 	}
+	public String getSubCategoryByQuestionSubCategoryID(int subCategoryID){
+		String subCategoryName= null;
+		try {
+	        con = DatabaseConnection.getConnection();
+	        
+	        pst = con.prepareStatement("select * from QuestionSubCategory where ID = ?");
+	        
+	        pst.setInt(1, subCategoryID);
+	    	        
+	        rs = pst.executeQuery();
+	        
+	        if(rs.isBeforeFirst())
+	        {
+	        	rs.next();
+	        	subCategoryName = rs.getString(2);
+	        }
+	        
+	        con.close();
+
+			
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return subCategoryName;
+		
+	}
+
 
 
 
