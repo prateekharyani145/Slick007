@@ -53,7 +53,7 @@
                         <td><%=qscdo.getSubCategoryName(s.getSubCategoryID())%></td>
                         <td><%=s.isBlocked()%></td>
                         <td><%  if (!s.isBlocked()){%>
-                            <a href="block_expert.jsp?id=<%=s.getId()%>" class="delete"  data-toggle="modal" onsubmit="myclick()"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
+                            <a href="db_Admin_BlockExpert.jsp?id=<%=s.getId()%>" class="delete"  data-toggle="modal" onsubmit="myclick()"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
                         </td>
                         <%}%>
                     </tr>

@@ -81,7 +81,7 @@ customer.setId((String)session.getAttribute("customerID"));
 							<!--li><a href="profile.jsp"><i class=" icon-bargraph"></i> Dashboard</a></li//>
 							<li><a href="profile-setting.jsp"><i class=" icon-gears"></i> Profile Setting</a></li-->
 							<!--li><a href="question-list.jsp"><i class="icon-heart"></i> Questions</a></li-->
-							<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+							<li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>
 						</ul>
 					 </li>
 				</ul>
@@ -111,7 +111,7 @@ customer.setId((String)session.getAttribute("customerID"));
         <!-- right bar -->
         <ul class="nav navbar-nav navbar-right">
           <li>
-            <div class="btn-nav"><a href="post-question.jsp" class="btn btn-primary btn-small navbar-btn">Post Question</a>
+            <div class="btn-nav"><a href="Customer_PostQuestion.jsp" class="btn btn-primary btn-small navbar-btn">Post Question</a>
             </div>
           </li>
         </ul>

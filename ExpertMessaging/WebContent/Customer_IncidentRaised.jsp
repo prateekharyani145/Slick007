@@ -54,7 +54,6 @@
                        <th>Question<br>Description</th>
                         <th>Description<br>of Incident</th>
                         <th>Posted Date<br>of Incident</th>
-                        <th>Blocked</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,9 +74,6 @@
                         <td><div id="myDIV1"><%=qs.getQuestionDescription()%></div></td>
                         <td><div id="myDIV2"><%=rs.getIncidentDescription()%></div></td>
                         <td><%=rs.getPostedDate()%></td>
-                        <td>
-                            <a href="block_expert.jsp?id=<%=qs.getExpertID()%>" onclick="clickAndDisable(this);" class="delete"  data-toggle="modal"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
-                        </td>
                         
                     </tr>
 

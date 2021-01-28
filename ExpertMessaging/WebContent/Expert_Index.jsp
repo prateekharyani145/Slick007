@@ -73,7 +73,7 @@
                                     <!--li><a href="profile.jsp"><i class=" icon-bargraph"></i> Dashboard</a></li//-->
                                     <li><a href="Expert_Profile_Setting.jsp"><i class=" icon-gears"></i> Profile Setting</a></li>
                                     <!--li><a href="question-list.jsp"><i class="icon-heart"></i> Questions</a></li-->
-                                    <li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+                                    <li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -91,7 +91,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- logo -->
-                    <a href="index_expert.jsp" class="navbar-brand">
+                    <a href="Expert_Index.jsp" class="navbar-brand">
                         <img class="img-responsive" alt="" src="images/logo.png">
                     </a>
                     <!-- header end -->

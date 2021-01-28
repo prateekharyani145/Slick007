@@ -60,7 +60,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="index_expert.jsp">Home</a>
+					<li><a href="Expert_Index.jsp">Home</a>
 					</li>
 				</ul>
 			</div>
@@ -78,7 +78,7 @@
 							</span>
 						</a>
 						<ul class="dropdown-menu ">
-							<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+							<li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>
 						</ul>
 					 </li>
 				</ul>
@@ -97,7 +97,7 @@
           <span class="icon-bar"></span>
         </button>
         <!-- logo -->
-        <a href="index_expert.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
+        <a href="Expert_Index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
         </a>
         <!-- header end -->
       </div>
@@ -105,11 +105,11 @@
       <div class="navbar-collapse collapse">
         <!-- right bar -->
         <ul class="nav navbar-nav navbar-right">
-          <li>
+<!--           <li>
             <div class="btn-nav"><a href="post-question.jsp" class="btn btn-primary btn-small navbar-btn">Post Question</a>
             </div>
           </li>
-        </ul>
+ -->        </ul>
       </div>
       <!-- navigation menu end -->
       <!--/.navbar-collapse -->

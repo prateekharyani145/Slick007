@@ -81,10 +81,10 @@
                         <td><%=qs.getCustomerID()%></td>
                         <td><%=qs.getQuestionTitle()%></td>
                         <td><div id="myDIV1"><%=qs.getQuestionDescription()%></div></td>
-                        <td><div id="myDIV2"><%=rs.getIncDesc()%></div></td>
+                        <td><div id="myDIV2"><%=rs.getIncidentDescription()%></div></td>
                         <td><%=rs.getPostedDate()%></td>
                         <td>
-                            <a href="block_customer.jsp?id=<%=qs.getCustomerID()%>" onclick="clickAndDisable(this);" class="delete"  data-toggle="modal"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
+                            <a href="db_Admin_BlockCustomer.jsp?id=<%=qs.getCustomerID()%>" onclick="clickAndDisable(this);" class="delete"  data-toggle="modal"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
                         </td>
                         
                     </tr>
@@ -95,7 +95,6 @@
 
                     }
                 %>
-
                 </tbody>
             </table>
         </div>

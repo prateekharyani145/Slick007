@@ -89,9 +89,9 @@
 			</div>
 			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
 				<ul class="top-nav nav-right">
-					<li><a href="AddQuestionCategoryAndSubCategory.jsp"><i aria-hidden="true"></i><b>Add Categories</b></a>
+					<li><a href="Admin_AddCategories.jsp"><i aria-hidden="true"></i><b>Add Categories</b></a>
 					</li>
-							<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+							<li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>
 					<!--li><a href="login.jsp"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
 					</li>
 					<li><a href="register.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
@@ -112,7 +112,7 @@
           <span class="icon-bar"></span>
         </button>
         <!-- logo -->
-        <a href="index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
+        <a href="Admin_Index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
         </a>
         <!-- header end -->
       </div>

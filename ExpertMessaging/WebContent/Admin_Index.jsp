@@ -52,7 +52,7 @@
 					</li>
 					<li><a href="Admin_ExpertRegister.jsp"><i class="fa fa-user-plus" aria-hidden="true"></i>Expert Register</a>
 					</li>
-					<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+					<li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>
 				</ul>
 			</div>
 		</div>
@@ -68,7 +68,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<!-- logo -->
-				<a href="index_admin.jsp" class="navbar-brand">
+				<a href="Admin_Index.jsp" class="navbar-brand">
 					<img class="img-responsive" alt="" src="images/logo.png">
 				</a>
 				<!-- header end -->

@@ -53,7 +53,7 @@
 			</div>
 	        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-8">
 				<ul class="top-nav nav-right">
-					<li><a href="logout.jsp"><i class="icon-lock"></i> Logout</a></li>
+					<li><a href="Logout.jsp"><i class="icon-lock"></i> Logout</a></li>
      		    </ul>
 			</div>
 			

@@ -235,6 +235,27 @@ public class CustomerDAO {
 		}
 		return customerList;
 	}
+	public boolean blockCustomer(String customerID) {
+		boolean b= false;
+		try {
+            con = DatabaseConnection.getConnection();
+            
+            pst = con.prepareStatement("Update Customer Set blocked = true where id = ?");
+            
+            pst.setString(1, customerID);
+            
+            int count = pst.executeUpdate();
+            
+            if(count > 0)
+                b = true;
+
+			
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;
+	}
 
 	
 

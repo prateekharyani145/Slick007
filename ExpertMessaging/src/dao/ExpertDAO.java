@@ -200,6 +200,26 @@ public Expert getAllDataById(String expertID) {
 	return expert;
 	
 }
+public boolean blockExpert(String expertID) {
+	boolean b= false;
+	try {
+        con = DatabaseConnection.getConnection();
+        
+        pst = con.prepareStatement("Update Expert Set blocked = true where id = ?");
+        
+        pst.setString(1, expertID);
+        
+        int count = pst.executeUpdate();
+        
+        if(count > 0)
+            b = true;
+
+	}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;
+	}
 
 
 

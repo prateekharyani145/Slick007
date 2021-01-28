@@ -52,7 +52,7 @@
                         <td><%=s.getMobileNumber()%></td>
                         <td><%=s.isBlocked()%></td>
                         <td><%  if (!s.isBlocked()){%>
-                            <a href="block_customer.jsp?id=<%=s.getId()%>" class="delete"  data-toggle="modal"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
+                            <a href="db_Admin_BlockCustomer.jsp?id=<%=s.getId()%>" class="delete"  data-toggle="modal"><img title="BLOCK" style="height: 30px; width: 30px;"  src="images/33.png"></a>
                         </td>
                         <%}%>
                     </tr>
