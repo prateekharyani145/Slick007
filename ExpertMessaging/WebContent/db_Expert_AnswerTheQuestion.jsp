@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dao.QuestionDAO"%>
 <%@page import="dto.Answer"%>
 <%@page import="dao.AnswerDAO"%>

@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dao.ExpertDAO"%>
 <%@page import="dto.Expert"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,7 +37,7 @@
 				        out.println("$(document).ready(function(){");
 				        out.println("swal ( 'Warning' ,  'invalid user-id or password !!!' ,'warning' );");
 				        out.println("});");
-				        out.write("setTimeout(function(){window.location.href='login_form.jsp'},2000);");
+				        out.write("setTimeout(function(){window.location.href='Login.jsp'},2000);");
 				        out.println("</script>");
             		}
             %>

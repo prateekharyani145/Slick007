@@ -1,3 +1,4 @@
+//    Author     : Prateek Haryani
 package dbcon;
 
 public interface DatabaseDetails {

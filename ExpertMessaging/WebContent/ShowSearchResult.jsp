@@ -1,13 +1,11 @@
 <%-- 
-    Author     : Prateek Haryani
+    Author     : Prateek Haryani  ..
 --%>
-
-
-<%@page import="dao.QuestionCategoryDAO"%>
-<%@page import="dto.QuestionCategory"%>
-<%@page import="java.util.List"%>
+<%@page import="dto.Answer"%>
+<%@page import="dao.AnswerDAO"%>
+<%@page import="dto.Question"%>
+<%@page import="dao.QuestionDAO"%>
 <%@page import="java.util.ArrayList"%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -16,7 +14,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="ScriptsBundle">
-  <title>Add Categories</title>
+  <title>Search Result</title>
   <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
   <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
   <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
@@ -42,6 +40,24 @@
   <!-- JavaScripts -->
   <script src="js/modernizr.js"></script>
 
+      <style> 
+#myDIV2 {
+  border: 1px solid black;
+  background-color: lightblue;
+  width: 170px;
+  height: 170px
+  overflow: auto;
+}
+#myDIV1 {
+  border: 1px solid black;
+  width: 170px;
+  height: 170px
+  overflow: auto;
+}
+</style>  
+    
+  
+
 </head>
 
 <body>
@@ -52,7 +68,7 @@
 		<div class="row">
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
 				<ul class="top-nav nav-left">
-					<li><a href="Admin_Index.jsp">Home</a>
+					<li><a href="Customer_Index.jsp">Home</a>
 					</li>
 				</ul>
 			</div>
@@ -77,88 +93,91 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="Admin_Index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png"></a>
+
+        <!-- logo -->
+        <a href="Customer_Index.jsp" class="navbar-brand"><img class="img-responsive" alt="" src="images/logo.png">
+        </a>
+
         <!-- header end -->
       </div>
+
     </div>
   </div>
+      <!-- navigation menu end -->
+      <!--/.navbar-collapse -->
+
   <!-- HEADER Navigation End -->
+
     <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
     <section class="page-title">
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-sm-7 co-xs-12 text-right">
-              <h1><b>Add Category and SubCategory </b></h1>
+              <h1><b>Search Result</b></h1>
           </div>
+          <!-- end col -->
+            <!-- end bread -->
           </div>
+          <!-- end col -->
         </div>
+        <!-- end row -->
       </section>
+   
+ <!-- end container -->
+ 
     <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
-    <!-- =-=-=-=-=-=-= Add Form =-=-=-=-=-=-= -->
-    <section class="section-padding-80 white" id="register">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
-            <div class="box-panel">
-              <!-- form login -->
-              <form action="db_Admin_AddCategories.jsp" method="post">
-				<div>
-                  <label>Category ID</label>
-                  <select id="qcat" class="questions-category form-control" name="categoryID" onchange="copyValue()">
-                      <option value="0">New Category</option>
-                      <%
-	                        QuestionCategoryDAO qd = new QuestionCategoryDAO();
-                            ArrayList<QuestionCategory> lst = qd.getAllQuestionCategories();
-                            if(lst != null)
-                            {
-                                for(QuestionCategory obj : lst)
-                                {
-			                      %><option value="<%=obj.getId()%>"><%=obj.getCategoryName()%></option>
-			                      <%
-                                }
-                            }
-                      %>    
-                  </select>
+
+          <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                         <h2><b> Result </b></h2><br>
+                    </div>
                 </div>
-				<div class="form-group">
-                  <!--label>Id</label-->
-                  <label>Category Name</label>
-                  <input type="text" id="mytextbox" placeholder="Enter Category Name" name="categoryName" class="form-control" required>
-                </div>
-
-
-	                  <script type="text/javascript">
-						function copyValue()
-						{
-						   var dropboxvalue = document.getElementById('qcat');
-						   var displaytext = dropboxvalue.options[dropboxvalue.selectedIndex].text;
-						   document.getElementById('mytextbox').value = displaytext;
-						   if (parseInt(document.getElementById("qcat").value) === 0) {
-							   document.getElementById("mytextbox").readOnly=false;
-						   }
-		
-						   else{
-							    document.getElementById("mytextbox").readOnly=true;
-						   }
-						}
-					</script>
-
-                <div class="form-group">
-                  <label>Sub Category Name</label>
-                  <input type="text" placeholder="Enter SubCategory Name" name="subCategoryName" class="form-control" required ><br>
-                </div>
-
-                
-                <button class="btn btn-primary btn-lg btn-block">Add Category</button>
-                  </form>
-              <!-- Form Add -->
             </div>
-          </div>
-         </div>
-   </div>
-      <!-- end container -->
-</section>
-    <!-- =-=-=-=-=-=-= Register Form End =-=-=-=-=-=-= -->
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Question Title</th>
+                        <th>Question Description</th>
+                        <th>Answer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                           String search=request.getParameter("search");
+                        
+                           QuestionDAO dao = new QuestionDAO();
+                           AnswerDAO ado = new AnswerDAO();
+                           
+                           ArrayList<Integer> qidlist =dao.getQuestionSearcResult(search);
+                           if(qidlist != null){
+                          	 ArrayList<Answer> anslist = ado.getAnswerSearchResult(qidlist);
+                           
+                          
+                          if(anslist != null)
+                          {
+                            for (Answer a : anslist) {  
+                            Question qs = dao.getQuestionById(a.getQuestionID());
+                           
+                    %>
+                    <tr>
+                        <td><%=qs.getQuestionTitle()%></td>
+                        <td><div id="myDIV1"><%=qs.getQuestionDescription()%></div></td>
+                        <td><%=a.getAnswerDescription()%></td>
+                    </tr>
+                <%}}}%>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+       
+
+  
   <!-- =-=-=-=-=-=-= JQUERY =-=-=-=-=-=-= -->
   <script src="js/jquery.min.js"></script>
   <!-- Bootstrap Core Css  -->

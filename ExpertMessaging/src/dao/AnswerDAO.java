@@ -1,3 +1,5 @@
+//    Author     : Prateek Haryani
+
 package dao;
 
 import java.sql.Connection;
@@ -116,6 +118,62 @@ public boolean addAnswer(Answer obj) {
 	}
 	return b;
 }
+public ArrayList<Answer> getAnswerSearchResult(ArrayList<Integer> qidlist)
+{
+    ArrayList<Answer> anslist = new ArrayList<>();
+    try
+    {
+    	for(Integer id : qidlist)
+        {
+            Answer a = getAnswerByQuestion(id);
+            if(a != null)
+            {
+                anslist.add(a);
+            }
+        }
+    }
+    catch(Exception ex)
+    {
+        ex.printStackTrace();
+    }
+    
+    return anslist;
+}
+public Answer getAnswerByQuestion(int questionID) {
+	Answer answer= null;
+	try {
+        con = DatabaseConnection.getConnection();
+        
+        pst = con.prepareStatement("select * From Answer WHERE questionID = ?");
+        
+        pst.setInt(1, questionID);
+        
+        rs = pst.executeQuery();
+        
+        if(rs.isBeforeFirst())
+        {
+            answer = new Answer();
+            
+            if(rs.next())
+            {
+                answer.setId(rs.getInt(1));
+                answer.setAnswerDescription(rs.getString(2));
+                answer.setPostedDate(rs.getTimestamp(3)+"");
+                answer.setQuestionID(rs.getInt(4));
+                answer.setExpertID(rs.getString(5));
+            }
+        }
+        con.close();
+		
+		
+	}
+	catch(Exception ex) {
+		ex.printStackTrace();
+	}
+	return answer;
+}
+
+
 
 
 }

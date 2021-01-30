@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dto.QuestionCategory"%>
 <%@page import="java.util.ArrayList" %>
 <%@page import="dao.QuestionCategoryDAO"%>
@@ -201,7 +204,7 @@
                   <textarea cols="12" rows="8" placeholder="Post Your Question Details Here....." id="message" name="questionDescription" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
-                  <label>Visibility</label>
+                  <label>Hide</label>
                   <input type="checkbox" value="private" name="visibility">
                 </div>  
                 <button class="btn btn-primary pull-right">Publish Your Question</button>

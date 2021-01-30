@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dao.QuestionCategoryDAO"%>

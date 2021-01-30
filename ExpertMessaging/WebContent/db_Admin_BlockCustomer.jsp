@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dao.CustomerDAO"%>
 <%
   String custid = request.getParameter("id");

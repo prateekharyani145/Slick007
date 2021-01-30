@@ -1,8 +1,10 @@
+//    Author     : Prateek Haryani
 package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import dbcon.DatabaseConnection;
@@ -244,6 +246,38 @@ public String getCustomerByQuestion(int questionID) {
 	
 }
 
+public ArrayList<Integer> getQuestionSearcResult(String searchTerm){
+	ArrayList<Integer> answerList= null;
+	try {
+	      con = DatabaseConnection.getConnection();
+	      
+	      Statement st=con.createStatement();
+	      
+	      //pst.setString(1, searchTerm);
+	      //pst.setString(2, searchTerm);
+	      
+	      rs=st.executeQuery("SELECT id FROM question WHERE  Visibility = 1 and ( QuestionDescription LIKE '%"+ searchTerm +"%' OR "
+	              + "questionTitle LIKE '%"+ searchTerm +"%' )");
+	      
+	      if(rs.isBeforeFirst())
+	        {
+	            answerList = new ArrayList<>();
+	            
+	             while(rs.next())
+	             {
+	                answerList.add(rs.getInt("id"));
+	             }
+	        }
+	       
+	      con.close();
+
+		
+	}
+	catch(Exception ex) {
+		
+	}
+	return answerList;
+}
 
 
 

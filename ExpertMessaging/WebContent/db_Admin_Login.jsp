@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dao.AdminDAO"%>
 <%@page import="dto.Admin"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

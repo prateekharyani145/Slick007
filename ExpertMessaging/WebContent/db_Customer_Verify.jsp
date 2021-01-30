@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dao.CustomerDAO"%>
 <jsp:useBean id="u"  class="dto.Customer" scope="request"></jsp:useBean>
 <jsp:setProperty name="u" property="*"></jsp:setProperty>

@@ -1,3 +1,6 @@
+<%-- 
+    Author     : Prateek Haryani
+--%>
 <%@page import="dao.CustomerDAO" %>
 <jsp:useBean id="registerFormObject" class="dto.Customer" scope="request"></jsp:useBean>
 <jsp:setProperty property="*" name="registerFormObject"/>
