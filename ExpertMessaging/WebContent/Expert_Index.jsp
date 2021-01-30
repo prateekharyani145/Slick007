@@ -46,6 +46,18 @@
     </head>
 
     <body>
+
+        <%
+            
+            String id = (String)session.getAttribute("expertid");
+                    if(id==null)
+                    {
+                    	out.println("<script>");
+                        out.write("setTimeout(function(){window.location.href='Login.jsp'},500);");
+                        out.println("</script>");
+                    }
+		%>
+
         <!-- =-=-=-=-=-=-= HEADER =-=-=-=-=-=-= -->
         <div class="top-bar">
             <div class="container">

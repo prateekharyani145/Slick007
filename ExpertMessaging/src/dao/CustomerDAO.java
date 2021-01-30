@@ -219,8 +219,8 @@ public class CustomerDAO {
                     obj.setFirstName(rs.getString(3));
                     obj.setLastName(rs.getString(4));
                     obj.setMobileNumber(rs.getString(5));
-                    obj.setVerified(rs.getBoolean(6));
-                    obj.setBlocked(rs.getBoolean(7));
+                    obj.setBlocked(rs.getBoolean(6));
+                    obj.setVerified(rs.getBoolean(7));
                     
                     customerList.add(obj);
                 }

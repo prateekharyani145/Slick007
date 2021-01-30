@@ -18,6 +18,7 @@
                              
             if(i)
             {
+                session.setAttribute("adminID",id);
 	    	    %>
 		      	<jsp:forward page="Admin_Index.jsp"></jsp:forward>
         		<%

@@ -14,7 +14,7 @@
         out.println("$(document).ready(function(){");
         out.println("swal ( 'Message From Server' ,  'You have succcessfully blocked the customer!!!' ,  'warning' );");
         out.println("});");
-        out.write("setTimeout(function(){window.location.href='index_admin.jsp'},2000);");
+        out.write("setTimeout(function(){window.location.href='Admin_AllCustomers.jsp'},2000);");
         out.println("</script>");
  }
 else
@@ -25,7 +25,7 @@ else
         out.println("$(document).ready(function(){");
         out.println("swal ( 'Message From Server' ,  'Some issue occurred!!!' ,  'warning' );");
         out.println("});");
-        out.write("setTimeout(function(){window.location.href='index_admin.jsp'},2000);");
+        out.write("setTimeout(function(){window.location.href='Admin_AllCustomers.jsp'},2000);");
         out.println("</script>");
   }  
 %>

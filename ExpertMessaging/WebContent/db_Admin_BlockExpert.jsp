@@ -13,7 +13,7 @@
         out.println("<script>");
         out.println("$(document).ready(function(){");
         out.println("swal ( 'Message From Server' ,  'You have succcessfully blocked the expert!!!' ,  'warning' );");
-        out.write("setTimeout(function(){window.location.href='index_admin.jsp'},2000);");
+        out.write("setTimeout(function(){window.location.href='Admin_AllExperts.jsp'},2000);");
         out.println("});");
         out.println("</script>");
   }
@@ -25,7 +25,7 @@
         out.println("$(document).ready(function(){");
         out.println("swal ( 'Message From Server' ,  'Some issue occurred!!!' ,  'warning' );");
         out.println("});");
-        out.write("setTimeout(function(){window.location.href='index_admin.jsp'},2000);");
+        out.write("setTimeout(function(){window.location.href='Admin_AllExperts.jsp'},2000);");
         out.println("</script>");
   }  
 %>

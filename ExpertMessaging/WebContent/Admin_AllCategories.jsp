@@ -30,8 +30,7 @@
   	<!-- =-=-=-=-=-=-= Owl carousel =-=-=-=-=-=-= -->
   <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
   <link rel="stylesheet" type="text/css" href="css/owl.style.css">
-  <!-- =-=-=-=-=-=-= Google Fonts =-=-=-=-=-=-= -->
-  <link href="../../../fonts.googleapis.com/cssd7e8.css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css">
+  
   <!-- =-=-=-=-=-=-= Highliter Css =-=-=-=-=-=-= -->
   <link type="text/css" rel="Stylesheet" href="css/styles/shCoreDefault.css" />
   <!-- =-=-=-=-=-=-= Css Animation =-=-=-=-=-=-= -->
