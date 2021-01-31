@@ -74,6 +74,45 @@ public class ReportedIncidentsByCustomerDAO {
 		}
 		return b;
 	}
+	public ArrayList<ReportedIncidentsByCustomer> getAllIncidentsByCustomerID(String customerID){
+		ArrayList<ReportedIncidentsByCustomer> CustomerIncidentList= null;
+		try {
+            con = DatabaseConnection.getConnection();
+            
+            pst = con.prepareStatement("SELECT * FROM reportedincidentsbycustomers WHERE customerID = ?");
+            
+            pst.setString(1, customerID);
+            
+            rs = pst.executeQuery();
+            
+            if(rs.isBeforeFirst())
+            {
+                CustomerIncidentList = new ArrayList<>();
+                
+                while(rs.next())
+                {
+                    ReportedIncidentsByCustomer obj = new ReportedIncidentsByCustomer();
+                    obj.setId(rs.getInt(1));
+                    obj.setIncidentDescription(rs.getString(2));
+                    obj.setPostedDate(rs.getTimestamp(3)+"");
+                    obj.setExpertID(rs.getString(4));
+                    obj.setCustomerID(rs.getString(5));
+                    obj.setQuestionID(rs.getInt(6));
+                    CustomerIncidentList.add(obj);
+                   
+                }
+            }
+            
+            con.close();
+
+			
+		}
+		catch (Exception e) {
+			e.printStackTrace();// TODO: handle exception
+		}
+		return CustomerIncidentList;
+	}
+
 
 
 }

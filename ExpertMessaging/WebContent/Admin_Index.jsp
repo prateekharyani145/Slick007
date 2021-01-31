@@ -93,14 +93,6 @@
 	<!-- HEADER Navigation End -->
 	<!-- =-=-=-=-=-=-= HOME =-=-=-=-=-=-= -->
         <div class="full-section search-section">
-		<div class="search-area container">
-			<h3 class="search-title">Have a Question?</h3>
-			<p class="search-tag-line">If you have search any question you can write or enter what you are looking for!</p>
-			<form autocomplete="off" method="get" class="search-form clearfix" id="search-form" action="ShowSearchResult.jsp">
-                            <input type="text" title="* Please enter a search term!" placeholder="Type your search terms here" class="search-term " autocomplete="off" name="search">
-				<input type="submit" value="Search" class="search-btn">
-			</form>
-		</div>
 	</div>
 	<!-- =-=-=-=-=-=-= HOME END =-=-=-=-=-=-= -->
 		<!-- =-=-=-=-=-=-= Latest Questions  =-=-=-=-=-=-= -->

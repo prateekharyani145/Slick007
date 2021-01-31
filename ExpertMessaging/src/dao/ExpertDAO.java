@@ -221,6 +221,48 @@ public boolean blockExpert(String expertID) {
 		}
 		return b;
 	}
+public boolean forgotPassword(Expert obj)
+{
+    boolean b = false;
+    
+    try
+    {
+        con = DatabaseConnection.getConnection();
+        
+        String genpass = UUID.randomUUID().toString().substring(0, 5);
+        
+            pst = con.prepareStatement("UPDATE Expert SET password = ?"
+                    + " WHERE id = ? and blocked = false");
+            pst.setString(1, genpass);
+            pst.setString(2, obj.getId());
+            
+            int count = pst.executeUpdate();
+            
+            if(count > 0)
+            {
+            boolean mailSent = MailDAO.sendMail(obj.getId(), 
+"New password from ExpertMessaging", "This is your new password  : "+genpass);
+            
+            if(mailSent)
+                System.out.println("new password mail has been "
+                    + "sent to "+obj.getId());
+            else
+                System.out.println("Mail has not been "
+                    + "sent to "+obj.getId());
+            
+            if(mailSent)
+                b = true;
+            
+            }
+        con.close();
+    }
+    catch(Exception ex)
+    {
+        ex.printStackTrace();
+    }
+    
+    return b;
+}
 
 
 

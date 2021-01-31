@@ -257,6 +257,54 @@ public class CustomerDAO {
 		}
 		return b;
 	}
+    public boolean forgotPassword(String custid)
+    {
+        boolean b = false;
+        
+        try
+        {
+        String verification_link = WebServer.MYSERVER+"/Customer_NewPassword.jsp?customerID="+custid;
+      	  boolean mailSent = MailDAO.sendMail(custid," Reset Password Mail From Slick "," Please click on following link to reset password yourself with Slick <a href="+verification_link+"> VERIFY</a>");
+      	    if(mailSent)
+              System.out.println("new password mail has been "
+                  + "sent to "+custid);
+          else
+              System.out.println("Mail has not been "
+                  + "sent to "+custid);
+      	   
+      	   if(mailSent)
+      		   b=true;
+ 
+        }
+        catch(Exception ex)
+        {
+            ex.printStackTrace();
+        }
+        
+        return b;
+    }
+
+	
+	public boolean forgotPassword(String id , String password) {
+		boolean b= false;
+		try {
+	        con = DatabaseConnection.getConnection();
+	        
+	        pst = con.prepareStatement("update customer set password = ? where id = ?");
+	        
+	        pst.setString(1, password);
+	        pst.setString(2, id);
+	        
+	        int count = pst.executeUpdate();
+	        
+	        if(count > 0)
+	            b = true;
+		}
+		catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return b;
+	}
 
 	
 

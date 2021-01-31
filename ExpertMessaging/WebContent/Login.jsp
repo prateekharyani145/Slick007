@@ -48,7 +48,7 @@ function myFunction2() {
             function forgotexpert()
             {
             var v=document.expertlogin.id.value;
-            var url="ForgotExpert.jsp?expertid="+v;
+            var url="db_Expert_ForgotPassword.jsp?expertid="+v;
 
             if(window.XMLHttpRequest){
             request=new XMLHttpRequest();
@@ -88,7 +88,7 @@ function myFunction2() {
             function forgotcustomer()
             {
             var v=document.customerlogin.customerID.value;
-            var url="ForgotCustomer.jsp?custid="+v;
+            var url="db_Customer_ForgotPassword.jsp?custid="+v;
 
             if(window.XMLHttpRequest){
             request=new XMLHttpRequest();
@@ -127,7 +127,7 @@ function myFunction2() {
             function forgotadmin()
             {
             var v=document.adminlogin.id.value;
-            var url="ForgotAdmin.jsp?adminid="+v;
+            var url="db_Admin_ForgotPassword.jsp?adminid="+v;
 
             if(window.XMLHttpRequest){
             request=new XMLHttpRequest();
